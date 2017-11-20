@@ -58,7 +58,7 @@ func LeaveScope() {
 	} else {
 		atomic.StoreUint32(&tabcount, uint32(tc))
 	}
-	logger.SetPrefix(getPreix(tc))
+	logger.SetPrefix(getPrefix(tc))
 	replacement = getReplacement(tc)
 }
 
@@ -81,7 +81,7 @@ func getPrefix(c int) string {
 	if c >= l {
 		diff := l - c + 1
 		prefixes = append(prefixes, make([]string, diff)...)
-		prefixes[c] = strings.Repeat("\t", tc)
+		prefixes[c] = strings.Repeat("\t", c)
 	}
 	return prefixes[c]
 }
@@ -91,7 +91,7 @@ func getReplacement(c int) string {
 	if c >= l {
 		diff := l - c + 1
 		replacements = append(replacements, make([]string, diff)...)
-		replacements[c] = "\n" + strings.Repeat("\t", tc)
+		replacements[c] = "\n" + strings.Repeat("\t", c)
 	}
 	return replacements[c]
 }
