@@ -62,6 +62,12 @@ func LeaveScope() {
 	replacement = getReplacement(tc)
 }
 
+func Printf(format string, others ...interface{}) {
+	s := fmt.Sprintf(format, others...)
+	s = strings.Replace(s, "\n", replacement, -1)
+	logger.Println(s)
+}
+
 func Logf(format string, others ...interface{}) {
 	s := fmt.Sprintf(format, others...)
 	s = strings.Replace(s, "\n", replacement, -1)

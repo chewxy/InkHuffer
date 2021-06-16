@@ -22,6 +22,9 @@ func EnterScope() {}
 // LeaveScope leaves a context. NO-OP
 func LeaveScope() {}
 
+// Printf is the same as Logf. This was added for drop-in compatibility for package log. NO-OP
+func Printf(format string, others ...interface{}) {}
+
 // Logf writes the string and the params into the logger. NO-OP
 func Logf(format string, others ...interface{}) {}
 
